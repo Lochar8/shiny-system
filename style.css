@@ -1,0 +1,767 @@
+/* Launch button: large, brand color, consistent layout/hover */
+:root {
+    --components-page-secondary-vertical-margin: 44px;
+    --components-page-secondary-horizontal-margin: 32px;
+
+    --semantics-surface-secondary: #010101;
+    --semantics-surface-primary: #E7E7E7;
+    --semantics-surface-brand: #00AFFF;
+    --semantics-surface-tertiary: #414141;
+
+    --semantics-border-colour-tertiary: #808080;
+    --semantics-border-colour-secondary: #EFEFEF;
+    --semantics-border-colour-primary: #010101;
+    --semantics-border-weight-small: 2px;
+
+    --semantics-padding-x-small: 8px;
+    --semantics-padding-default: 16px;
+    --semantics-padding-x-large: 64px;
+    --semantics-padding-large: 48px;
+    --semantics-padding-regular: 24px;
+    --semantics-padding-margin: 230px;
+
+    --semantics-text-colour-primary: #010101;
+    --semantics-colours-btn-text: #EFEFEF;
+    --semantics-text-colour-secondary: #EFEFEF;
+    --semantics-text-colour-brand: #00AFFF;
+    --semantics-text-colour-tertiary:#414141;
+    --semantics-text-colour-button1:#010101;
+
+    --semantics-surface-button2: #EFEFEF;
+
+    --semantics-text-regular-size: 20px;
+    --semantics-text-small-size: 18px;
+    --semantics-text-medium-size: 24px;
+    --semantics-text-heading-title-size: 64px;
+    --semantics-text-heading-title-weight: 700;
+    --semantics-text-regular-weight: 400;
+
+    /* Typography primitives mapped to semantic tokens */
+    --primitives-typography-font-size-regular: var(--semantics-text-regular-size);
+    --primitives-typography-font-size-medium: var(--semantics-text-medium-size);
+    --primitives-typography-font-size-large: 32px;
+    --primitives-typography-font-weight-regular: var(--semantics-text-regular-weight);
+    --primitives-typography-font-weight-medium: 600;
+    --primitives-typography-font-weight-large: var(--semantics-text-heading-title-weight);
+
+    --components-buttons-button-type-1-padding-btn-vertical: 16px;
+    --components-buttons-button-type-1-padding-horizontal: 24px;
+    --components-buttons-button-type-3-padding-vertical: 14px;
+    --components-buttons-button-type-3-padding-horizontal: 16px;
+    --components-button-edges-radius: 9px;
+    --components-cards-padding-vertical: 32px;
+    --components-cards-padding-horizontal: 32px;
+    --components-button-colours-fill-onhover: #002C40;
+    --components-buttons-button-type-1-colour-default: #010101;
+    --components-buttons-button-type-2-colour-border: #010101;
+    --components-buttons-button-type-2-colour-inverse: #002C40;
+    --components-buttons-button-type-3-colour-default: #00AFFF;
+    --components-buttons-button-type-3-colour-inverse: #002C40;
+    --components-buttons-button-type-2-colour-default: #00AFFF;
+    --primitives-font-family-primary: Elza, Arial, sans-serif;
+
+}
+
+body {
+    margin: 0;
+}
+
+.info-cards-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+    width: 100%;
+    max-width: 1920px;
+    margin: 0 auto;
+    box-sizing: border-box;
+    padding: var(--semantics-padding-x-large) var(--semantics-padding-margin);
+    background: var(--semantics-surface-primary);
+}
+
+.card-section{
+    width: 100%;
+	max-width: 1460px;
+	min-width: 0;
+	display: flex;
+	flex-wrap: wrap;
+	align-items: stretch;
+	gap: 16px;
+	box-sizing: border-box;
+	flex-direction: row;
+	height: auto;
+	position: relative;
+	
+}
+.card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: auto;
+    flex: 1 1 calc(50% - 8px);
+    max-width: calc(50% - 8px);
+    min-height: 220px;
+    padding: var(--components-cards-padding-vertical) var(--components-cards-padding-horizontal);
+    background: var(--semantics-surface-secondary);
+    box-sizing: border-box;
+    gap: 10px;
+}
+
+.see-also-text-heading {
+    color: var(--semantics-text-colour-secondary);
+    font-family: var(--primitives-font-family-primary);
+    font-size: var(--semantics-text-medium-size);
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    margin-bottom: 16px;
+}
+
+/* Card sizing override inside See Also grid */
+.see-also-grid .card {
+    flex: 1 1 auto;
+    width: 100%;
+    max-width: 100%;
+}
+
+.card-title {
+    color: var(--semantics-text-colour-secondary);
+    font-family: var(--primitives-font-family-primary);
+    font-size: var(--primitives-typography-font-size-large);
+    font-style: normal;
+    font-weight: var(--primitives-typography-font-weight-medium);
+    line-height: normal;
+    text-align: left;
+}
+
+.card-description {
+    color: var(--semantics-text-colour-secondary);
+    font-family: var(--primitives-font-family-primary);
+    font-size: var(--primitives-typography-font-size-regular);
+    font-style: normal;
+    font-weight: var(--primitives-typography-font-weight-regular, 400);
+    line-height: normal;
+    margin: 0;
+    text-align: left;
+    /* No margin-bottom; let button float over background */
+}
+
+/* Card button positioned bottom right */
+.card__button {
+    position: absolute;
+    right: var(--components-cards-padding-horizontal);
+    bottom: var(--components-cards-padding-vertical);
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
+    font-family: var(--primitives-font-family-primary);
+    padding: var(--components-buttons-button-type-1-padding-btn-vertical) var(--components-buttons-button-type-1-padding-horizontal);
+    border-radius: var(--components-button-edges-radius);
+    border: var(--semantics-border-weight-small) solid var(--semantics-border-colour-primary);
+    background: var(--components-buttons-button-type-2-colour-default);
+    font-size: var(--semantics-text-regular-size);
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+	cursor: pointer;
+	transition: background 0.3s, border-color 0.3s, color 0.3s, transform 0.3s;
+}
+
+.card__button:hover {
+    background: var(--components-buttons-button-type-2-colour-inverse);
+	color: var(--semantics-text-colour-secondary);
+	border: var(--semantics-border-weight-small) solid var(--semantics-border-colour-secondary);
+}
+
+.launch-button {
+    width: 230px;
+    height: 230px;
+    background: var(--semantics-surface-brand);
+    border: none;
+    cursor: pointer;
+    align-self: stretch;
+    transition: background 0.3s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+
+.launch-button:hover {
+    background: var(--components-buttons-button-type-3-colour-inverse);
+    color: var(--semantics-colours-btn-text);
+    border-color: var(--semantics-border-colour-secondary);
+}
+
+.launch-button-label {
+    /* label sits under icon, styled like a title */
+    display: block;
+    margin-top: 16px;
+    color: var(--semantics-text-colour-button1);
+    text-align: center;
+    font-family: var(--primitives-font-family-primary);
+    font-size: var(--primitives-typography-font-size-large);
+    font-style: normal;
+    font-weight: var(--primitives-typography-font-weight-large);
+    line-height: normal;
+}
+
+.launch-button svg {
+    display: block;
+    margin: 0 auto;
+    transition: fill 0.3s;
+}
+
+.launch-button:hover .launch-button-label {
+    color: var(--semantics-colours-btn-text);
+}
+.launch-button:hover svg path {
+    fill: var(--semantics-colours-btn-text);
+}
+/* Tutorial card text styles (match card styles) */
+.tutorial-card-title {
+    color: var(--semantics-text-colour-secondary);
+    font-family: var(--primitives-font-family-primary);
+    font-size: var(--primitives-typography-font-size-medium);
+    font-style: normal;
+    font-weight: var(--primitives-typography-font-weight-medium);
+    line-height: normal;
+    text-align: left;
+}
+
+.tutorial-card-description {
+    color: var(--semantics-text-colour-secondary);
+    font-family: var(--primitives-font-family-primary);
+    font-size: var(--primitives-typography-font-size-regular);
+    font-style: normal;
+    font-weight: var(--primitives-typography-font-weight-regular);
+    line-height: normal;
+    margin: 0;
+    text-align: left;
+}
+/* Tutorial card section layout */
+.tutorial-card {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    max-width: 1460px;
+    min-width: 0;
+    align-items: stretch;
+    gap: 16px;
+    background: var(--semantics-surface-secondary);
+    box-sizing: border-box;
+}
+
+.card-text-frame {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    width: 100%;
+    max-width: 931px;
+    min-width: 0;
+    padding: var(--components-cards-padding-vertical) var(--components-cards-padding-horizontal);
+    gap: 10px;
+    flex-shrink: 1;
+    box-sizing: border-box;
+}
+
+/* Clean, de-duplicated stylesheet ordered by page structure */
+
+
+/* Layout wrappers (full-width, centered content) */
+.primary-navigation,
+.breadcrumb-section,
+.secondary-navigation,
+.hero-image-wrapper,
+.hero-image-section,
+.sources,
+.library-section,
+.see-also,
+.site-footer {
+    width: 100%;
+    max-width: 1920px;
+    margin: 0 auto;
+    box-sizing: border-box;
+}
+
+/* Primary Navigation Section */
+.primary-navigation {
+    display: flex;
+    min-height: 80px;
+    padding: var(--components-page-secondary-vertical-margin) 0;
+    justify-content: space-between;
+    align-items: center;
+    gap: 24px;
+    background: var(--semantics-surface-secondary);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.primary-navigation__logo {
+    width: 287px;
+    height: 100%;
+    align-self: stretch;
+    flex-shrink: 0;
+}
+
+.primary-navigation__logo-image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+}
+
+.primary-navigation__links {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    margin-left: var(--components-page-secondary-horizontal-margin);
+    padding-right: var(--components-page-secondary-horizontal-margin);
+}
+
+/* Primary nav links (shared button style) */
+.nav-link {
+    display: flex;
+    padding: var(--components-buttons-button-type-1-padding-btn-vertical) var(--components-buttons-button-type-1-padding-horizontal);
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    border-radius: var(--components-button-edges-radius);
+    border: var(--semantics-border-weight-small) solid var(--semantics-border-colour-tertiary);
+    background: var(--components-buttons-button-type-1-colour-default);
+    color: var(--semantics-text-colour-secondary);
+    font-family: var(--primitives-font-family-primary);
+    font-size: var(--semantics-text-regular-size);
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background 0.3s, border-color 0.3s, border-radius 0.3s, color 0.3s;
+}
+
+.nav-link:hover {
+    border-radius: var(--components-button-edges-radius);
+    border: var(--semantics-border-weight-small) solid var(--semantics-border-colour-tertiary);
+    background: var(--semantics-surface-primary);
+    color: var(--semantics-text-colour-button1);
+}
+
+/* Breadcrumb Section */
+.breadcrumb-section {
+    display: flex;
+    background: var(--semantics-surface-primary);
+    padding: var(--semantics-padding-x-small) var(--semantics-padding-default);
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+.breadcrumb-section,
+.breadcrumb-section a,
+.breadcrumb-section li {
+    color: var(--semantics-text-colour-primary);
+    font-family: var(--primitives-font-family-primary);
+    font-size: var(--semantics-text-small-size);
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+.breadcrumb-section a:hover {
+    color: var(--semantics-text-colour-brand);
+    text-decoration-line: underline;
+    text-decoration-style: solid;
+    text-decoration-skip-ink: auto;
+    text-decoration-thickness: auto;
+    text-underline-offset: auto;
+}
+
+.breadcrumb-separator {
+    margin: 0 8px;
+    color: #aaa;
+}
+
+.breadcrumb-current {
+    color: #aaa;
+}
+
+.breadcrumb-list {
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* Secondary Navigation Section */
+.secondary-navigation {
+    display: flex;
+    min-height: 60px;
+    padding: var(--semantics-padding-default) var(--semantics-padding-margin);
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    background: var(--semantics-surface-brand);
+}
+
+/* Secondary navigation button style overrides */
+.secondary-navigation .nav-link {
+    padding: var(--components-buttons-button-type-1-padding-btn-vertical) var(--components-buttons-button-type-1-padding-horizontal);
+    border-radius: var(--components-button-edges-radius);
+    border: var(--semantics-border-weight-small) solid var(--components-buttons-button-type-2-colour-border);
+    background: var(--components-buttons-button-type-2-colour-default);
+    color: var(--semantics-text-colour-button1);
+    font-family: var(--primitives-font-family-primary);
+}
+
+.secondary-navigation .nav-link:hover {
+    border-radius: var(--components-button-edges-radius);
+    border: var(--semantics-border-weight-small) solid var(--semantics-border-colour-secondary);
+    background: var(--components-buttons-button-type-3-colour-inverse);
+    color: var(--semantics-text-colour-secondary);
+}
+
+/* Flip and recolor SVG on secondary nav button hover */
+.secondary-navigation .nav-link .nav-svg {
+    transition: transform 0.3s, stroke 0.3s;
+}
+
+.secondary-navigation .nav-link:hover .nav-svg {
+    transform: rotate(180deg);
+}
+
+.secondary-navigation .nav-link:hover .nav-svg path {
+    stroke: var(--semantics-text-colour-secondary);
+    transition: stroke 0.3s;
+}
+
+/* Hero Image Section with Overlay */
+.hero-image-wrapper {
+    position: relative;
+}
+
+.hero-image-section {
+    height: 427px;
+    background: url(images/img-bg.png) center/cover no-repeat;
+    display: block;
+}
+
+.hero-overlay-section {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    width: 50%;
+    height: 428px;
+    padding: 160px 142px 138px 142px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 10px;
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(10px);
+    box-sizing: border-box;
+    z-index: 1;
+}
+
+.hero-title {
+    color: var(--semantics-text-colour-primary);
+    font-family: var(--primitives-font-family-primary);
+    font-size: var(--semantics-text-heading-title-size);
+    font-style: normal;
+    font-weight: var(--semantics-text-heading-title-weight);
+    line-height: normal;
+    margin: 0;
+    text-align: left;
+}
+
+.hero-subtitle {
+    color: var(--semantics-text-colour-primary);
+    font-family: var(--primitives-font-family-primary);
+    font-size: var(--semantics-text-regular-size);
+    font-style: normal;
+    font-weight: var(--semantics-text-regular-weight);
+    line-height: normal;
+    margin-top: 16px;
+    text-align: left;
+}
+
+/* Sources Section */
+.sources {
+    display: flex;
+    padding: var(--semantics-padding-x-large) var(--semantics-padding-margin);
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    background: var(--semantics-surface-primary);
+}
+
+/* See Also Section */
+.see-also {
+    display: flex;
+    padding: var(--semantics-padding-large)
+        var(--semantics-padding-margin);
+    flex-direction: column;
+    justify-content: center;
+    align-items: stretch;
+    gap: 16px;
+    background: var(--semantics-surface-tertiary);
+}
+
+.see-also-heading {
+    display: flex;
+    width: 100%;
+    justify-content: flex-start;
+}
+
+.see-also-grid {
+    display: grid;
+    width: 100%;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+}
+
+.site-footer {
+    padding: var(--semantics-padding-default) var(--semantics-padding-margin);
+    background: var(--semantics-surface-secondary);
+    color: var(--semantics-text-colour-secondary);
+}
+
+.site-footer__inner {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+}
+
+.site-footer__text {
+    font-family: var(--primitives-font-family-primary);
+    font-size: var(--semantics-text-small-size);
+    font-style: normal;
+    font-weight: var(--primitives-typography-font-weight-regular);
+    line-height: normal;
+}
+
+.site-footer__links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+.site-footer__links a {
+    color: var(--semantics-text-colour-secondary);
+    font-family: var(--primitives-font-family-primary);
+    font-size: var(--semantics-text-small-size);
+    font-style: normal;
+    font-weight: var(--primitives-typography-font-weight-regular);
+    line-height: normal;
+    text-decoration: none;
+}
+
+.site-footer__links a:hover {
+    color: var(--semantics-text-colour-brand);
+    text-decoration: underline;
+}
+
+.site-footer__bottom {
+    margin-top: 12px;
+    padding-top: 12px;
+    border-top: 1px solid var(--semantics-border-colour-tertiary);
+}
+
+.site-footer__bottom-text {
+    display: block;
+    text-align: left;
+    font-family: var(--primitives-font-family-primary);
+    font-size: var(--semantics-text-small-size);
+    font-style: normal;
+    font-weight: var(--primitives-typography-font-weight-regular);
+    line-height: normal;
+}
+
+.sources-text {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.sources-text-heading {
+    color: var(--semantics-text-colour-primary);
+    font-family: var(--primitives-font-family-primary);
+    font-size: var(--semantics-text-medium-size);
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    margin-bottom: 16px;
+}
+
+
+.sources-text-subheading {
+    color: var(--semantics-text-colour-primary);
+    font-family: var(--primitives-font-family-primary);
+    font-size: var(--semantics-text-small-size);
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+/* Library Section (empty content for now) */
+.library-section {
+    display: flex;
+    padding: var(--semantics-padding-regular) var(--semantics-padding-margin);
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 106px;
+    background: var(--semantics-surface-brand);
+}
+
+.library-search__title {
+	color: var(--semantics-surface-secondary);
+    font-family: var(--primitives-font-family-primary, Elza);
+    font-size: var(--primitives-typography-font-size-large,32px);
+    font-style: normal;
+    font-weight: var(--primitives-typography-font-weight-medium, 600);
+    line-height: normal;
+	flex: 0 0 auto;
+	margin-right: 16px;
+}
+/* Library search layout */
+.library-search__actions {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    width: 100%;
+    color: var(--semantics-surface-primary);
+}
+
+.library-search__form {
+    position: relative;
+    display: flex;
+    width: 100%;
+    max-width: 722px;
+    flex: 1 1 300px;
+    height: 58px;
+    flex-shrink: 0;
+    color: var(--semantics-surface-primary);
+}
+
+.library-search__input {
+    flex: 1 1 auto;
+    height: 100%;
+    padding: 0 56px 0 16px; /* extra right padding for icon */
+    border-radius: var(--components-button-edges-radius, 9px);
+    border: var(--semantics-border-weight-small, 2px) solid var(--semantics-border-colour-primary);
+    font-family: var(--primitives-font-family-primary);
+    font-size: var(--semantics-text-regular-size, 20px);
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    color: var( --semantics-text-colour-tertiary);
+    background-color: var(--semantics-surface-primary);
+}
+
+.library-search__button {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    display: flex;
+    width: 48px;
+    height: 62px;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    border-radius: 0 var(--components-button-edges-radius, 9px) var(--components-button-edges-radius, 9px) 0;
+    background: var(--semantics-surface-button2);
+    border: none;
+    cursor: pointer;
+    border: var(--semantics-border-weight-small, 2px) solid var(--semantics-border-colour-primary);
+}
+
+
+/* Sources button grid */
+.sources-button-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-top: 24px;
+    width: 100%;
+    max-width: 1349px; /* 3 buttons + gaps, centered */
+    margin-left: auto;
+    margin-right: auto;
+    justify-items: center;
+}
+
+
+.tutorial-card > .launch-button {
+    margin-left: auto;
+    align-self: center;
+}
+
+/* Sources button */
+.sources-button {
+    display: inline-flex;
+    padding: var(--components-buttons-button-type-3-padding-vertical) var(--components-buttons-button-type-3-padding-horizontal);
+    align-items: center;
+    gap: 10px;
+    justify-content: space-between;
+    border-radius: var(--components-button-edges-radius);
+    border: var(--semantics-border-weight-small) solid var(--semantics-border-colour-primary);
+    background: var(--components-buttons-button-type-3-colour-default);
+    color: var(--semantics-text-colour-button1);
+    font-family: var(--primitives-font-family-primary);
+    font-size: var(--semantics-text-regular-size);
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    cursor: pointer;
+    text-decoration: none;
+    width: 100%;
+    max-width: 439px;
+}
+
+.sources-button-label {
+    color: var(--semantics-text-colour-button1);
+    font-family: var(--primitives-font-family-primary);
+    font-size: var(--semantics-text-regular-size);
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+.sources-button-icon {
+    width: 18px;
+    height: 18px;
+}
+
+.sources-button:hover {
+    border-radius: var(--components-button-edges-radius);
+    border: var(--semantics-border-weight-small) solid var(--semantics-border-colour-secondary);
+    background: var(--components-buttons-button-type-3-colour-inverse);
+    color: var(--semantics-text-colour-secondary);
+}
+
+.sources-button:hover .sources-button-label {
+    color: var(--semantics-colours-btn-text);
+    font-family: var(--primitives-font-family-primary);
+    font-size: var(--semantics-text-regular-size);
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+.sources-button:hover .sources-button-icon path {
+    stroke: var(--semantics-colours-btn-text);
+}
+
