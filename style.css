@@ -189,7 +189,7 @@ body {
 
 .launch-button:hover {
     background: var(--components-buttons-button-type-2-colour-inverse);
-    color: var(--semantics-text-colour-button1);
+    color: var(--semantics-text-colour-secondary);
     border: var(--semantics-border-weight-small) solid var(--components-buttons-button-type-2-colour-border-inverse);
 }
 
@@ -213,10 +213,10 @@ body {
 }
 
 .launch-button:hover .launch-button-label {
-    color: var(--semantics-text-colour-button1);
+    color: var(--semantics-text-colour-secondary);
 }
 .launch-button:hover svg path {
-    fill: var(--semantics-text-colour-button1);
+    fill: var(--semantics-text-colour-secondary);
 }
 /* Tutorial card text styles (match card styles) */
 .tutorial-card-title {
@@ -460,7 +460,7 @@ body {
     justify-content: center;
     align-items: flex-start;
     gap: 10px;
-    background: rgba(0, 0, 0, 0.7);
+    background: rgba(255, 255, 255, 0.7);
     backdrop-filter: blur(10px);
     box-sizing: border-box;
     z-index: 1;
@@ -749,7 +749,7 @@ body {
 }
 
 .sources-button:hover .sources-button-label {
-    color: var(--semantics-text-colour-button1);
+    color: var(--semantics-text-colour-secondary);
     font-family: var(--primitives-font-family-primary);
     font-size: var(--semantics-text-regular-size);
     font-style: normal;
@@ -758,7 +758,7 @@ body {
 }
 
 .sources-button:hover .sources-button-icon path {
-    stroke: var(--semantics-text-colour-button1);
+    stroke: var(--semantics-text-colour-secondary);
 }
 
 
