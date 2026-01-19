@@ -3,13 +3,12 @@
     --components-page-secondary-vertical-margin: 44px;
     --components-page-secondary-horizontal-margin: 32px;
 
-    --semantics-surface-secondary: #010101;
-    --semantics-surface-primary: #E7E7E7;
-    --semantics-surface-brand: #00AFFF;
-    --semantics-surface-tertiary: #414141;
+    --semantics-surface-secondary: #010101;/*checked*/
+    --semantics-surface-primary: #EFEFEF;/*checked*/
+    --semantics-surface-brand: #00AFFF;/*checked*/
+    --semantics-surface-tertiary: #414141; /*checked*/
 
-    --semantics-border-colour-tertiary: #808080;
-    --semantics-border-colour-secondary: #EFEFEF;
+    --semantics-border-colour-tertiary: #808080;/*checked*/
     --semantics-border-colour-primary: #010101;
     --semantics-border-weight-small: 2px;
 
@@ -21,12 +20,11 @@
     --semantics-padding-margin: 230px;
 
     --semantics-text-colour-primary: #010101;
-    --semantics-colours-btn-text: #EFEFEF;
     --semantics-text-colour-secondary: #EFEFEF;
     --semantics-text-colour-brand: #00AFFF;
     --semantics-text-colour-tertiary:#414141;
     --semantics-text-colour-button1:#010101;
-
+    --semantics-surface-button1: #010101;
     --semantics-surface-button2: #EFEFEF;
 
     --semantics-text-regular-size: 20px;
@@ -51,13 +49,10 @@
     --components-button-edges-radius: 9px;
     --components-cards-padding-vertical: 32px;
     --components-cards-padding-horizontal: 32px;
-    --components-button-colours-fill-onhover: #002C40;
-    --components-buttons-button-type-1-colour-default: #010101;
     --components-buttons-button-type-2-colour-border: #010101;
-    --components-buttons-button-type-2-colour-inverse: #002C40;
-    --components-buttons-button-type-3-colour-default: #00AFFF;
-    --components-buttons-button-type-3-colour-inverse: #002C40;
+    --components-buttons-button-type-2-colour-border-inverse:#EFEFEF;
     --components-buttons-button-type-2-colour-default: #00AFFF;
+    --components-buttons-button-type-2-colour-inverse: #002C40;
     --primitives-font-family-primary: Elza, Arial, sans-serif;
 
 }
@@ -160,7 +155,7 @@ body {
     font-family: var(--primitives-font-family-primary);
     padding: var(--components-buttons-button-type-1-padding-btn-vertical) var(--components-buttons-button-type-1-padding-horizontal);
     border-radius: var(--components-button-edges-radius);
-    border: var(--semantics-border-weight-small) solid var(--semantics-border-colour-primary);
+    border: var(--semantics-border-weight-small) solid var(--components-buttons-button-type-2-colour-border);
     background: var(--components-buttons-button-type-2-colour-default);
     font-size: var(--semantics-text-regular-size);
     font-style: normal;
@@ -173,14 +168,14 @@ body {
 .card__button:hover {
     background: var(--components-buttons-button-type-2-colour-inverse);
 	color: var(--semantics-text-colour-secondary);
-	border: var(--semantics-border-weight-small) solid var(--semantics-border-colour-secondary);
+	border: var(--semantics-border-weight-small) solid var(--components-buttons-button-type-2-colour-border-inverse);
 }
 
 .launch-button {
     width: 230px;
     height: 230px;
-    background: var(--semantics-surface-brand);
-    border: none;
+    background: var(--components-buttons-button-type-2-colour-default);
+    border: var(--semantics-border-weight-small) solid var(--components-buttons-button-type-2-colour-border);
     cursor: pointer;
     align-self: stretch;
     transition: background 0.3s;
@@ -193,9 +188,9 @@ body {
 
 
 .launch-button:hover {
-    background: var(--components-buttons-button-type-3-colour-inverse);
-    color: var(--semantics-colours-btn-text);
-    border-color: var(--semantics-border-colour-secondary);
+    background: var(--components-buttons-button-type-2-colour-inverse);
+    color: var(--semantics-text-colour-button1);
+    border: var(--semantics-border-weight-small) solid var(--components-buttons-button-type-2-colour-border-inverse);
 }
 
 .launch-button-label {
@@ -218,10 +213,10 @@ body {
 }
 
 .launch-button:hover .launch-button-label {
-    color: var(--semantics-colours-btn-text);
+    color: var(--semantics-text-colour-button1);
 }
 .launch-button:hover svg path {
-    fill: var(--semantics-colours-btn-text);
+    fill: var(--semantics-text-colour-button1);
 }
 /* Tutorial card text styles (match card styles) */
 .tutorial-card-title {
@@ -333,7 +328,7 @@ body {
     gap: 10px;
     border-radius: var(--components-button-edges-radius);
     border: var(--semantics-border-weight-small) solid var(--semantics-border-colour-tertiary);
-    background: var(--components-buttons-button-type-1-colour-default);
+    background: var(--semantics-surface-button1);
     color: var(--semantics-text-colour-secondary);
     font-family: var(--primitives-font-family-primary);
     font-size: var(--semantics-text-regular-size);
@@ -348,7 +343,7 @@ body {
 .nav-link:hover {
     border-radius: var(--components-button-edges-radius);
     border: var(--semantics-border-weight-small) solid var(--semantics-border-colour-tertiary);
-    background: var(--semantics-surface-primary);
+    background: var(--semantics-surface-button2);
     color: var(--semantics-text-colour-button1);
 }
 
@@ -423,8 +418,8 @@ body {
 
 .secondary-navigation .nav-link:hover {
     border-radius: var(--components-button-edges-radius);
-    border: var(--semantics-border-weight-small) solid var(--semantics-border-colour-secondary);
-    background: var(--components-buttons-button-type-3-colour-inverse);
+    border: var(--semantics-border-weight-small) solid var(--components-buttons-button-type-2-colour-border-inverse);
+    background: var(--components-buttons-button-type-2-colour-inverse);
     color: var(--semantics-text-colour-secondary);
 }
 
@@ -465,7 +460,7 @@ body {
     justify-content: center;
     align-items: flex-start;
     gap: 10px;
-    background: rgba(255, 255, 255, 0.7);
+    background: rgba(0, 0, 0, 0.7);
     backdrop-filter: blur(10px);
     box-sizing: border-box;
     z-index: 1;
@@ -686,8 +681,9 @@ body {
     background: var(--semantics-surface-button2);
     border: none;
     cursor: pointer;
-    border: var(--semantics-border-weight-small, 2px) solid var(--semantics-border-colour-primary);
+    transition: background 0.3s, border-color 0.3s;
 }
+
 
 
 /* Sources button grid */
@@ -717,8 +713,8 @@ body {
     gap: 10px;
     justify-content: space-between;
     border-radius: var(--components-button-edges-radius);
-    border: var(--semantics-border-weight-small) solid var(--semantics-border-colour-primary);
-    background: var(--components-buttons-button-type-3-colour-default);
+    border: var(--semantics-border-weight-small) solid var(--components-buttons-button-type-2-colour-border);
+    background: var(--components-buttons-button-type-2-colour-default);
     color: var(--semantics-text-colour-button1);
     font-family: var(--primitives-font-family-primary);
     font-size: var(--semantics-text-regular-size);
@@ -747,13 +743,13 @@ body {
 
 .sources-button:hover {
     border-radius: var(--components-button-edges-radius);
-    border: var(--semantics-border-weight-small) solid var(--semantics-border-colour-secondary);
-    background: var(--components-buttons-button-type-3-colour-inverse);
+    border: var(--semantics-border-weight-small) solid var(--components-buttons-button-type-2-colour-border-inverse);
+    background: var(--components-buttons-button-type-2-colour-inverse);
     color: var(--semantics-text-colour-secondary);
 }
 
 .sources-button:hover .sources-button-label {
-    color: var(--semantics-colours-btn-text);
+    color: var(--semantics-text-colour-button1);
     font-family: var(--primitives-font-family-primary);
     font-size: var(--semantics-text-regular-size);
     font-style: normal;
@@ -762,6 +758,7 @@ body {
 }
 
 .sources-button:hover .sources-button-icon path {
-    stroke: var(--semantics-colours-btn-text);
+    stroke: var(--semantics-text-colour-button1);
 }
+
 
